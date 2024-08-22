@@ -1,0 +1,73 @@
+---
+create database:
+
+>>> from finanzen import app, db
+>>> app.app_context().push()
+>>> from finanzen.models import User
+>>> user = User.query.first()
+>>> user
+
+python
+from apps import db
+db.create_all()
+>>> from finanzen import app
+>>> app.app_context().push()
+
+>>> user_2 = User(username='rubu', email='rubu@gmail.com', password='rubu')
+>>> db.session.add(user_2)
+>>> db.session.commit()
+>>> User.query.all()
+[User('rubutar', 'rubutar@gmail.com', 'default.jpg'), User('rubu', 'rubu@gmail.com', 'default.jpg')]
+>>> User.query.first()
+User('rubutar', 'rubutar@gmail.com', 'default.jpg')
+>>> User.query.filter_by(username='rubutar')
+<flask_sqlalchemy.query.Query object at 0x102aacfb0>
+>>> User.query.filter_by(username='rubutar').all()
+[User('rubutar', 'rubutar@gmail.com', 'default.jpg')]
+>>> user = User.query.filter_by(username='Corey').first()
+>>> user
+>>> user = User.query.filter_by(username='rubutar').first()
+>>> user
+User('rubutar', 'rubutar@gmail.com', 'default.jpg')
+
+>>> user.id
+1
+>>> user = User.query.get(1)
+<stdin>:1: LegacyAPIWarning: The Query.get() method is considered legacy as of the 1.x series of SQLAlchemy and becomes a legacy construct in 2.0. The method is now available as Session.get() (deprecated since: 2.0) (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+>>> user
+User('rubutar', 'rubutar@gmail.com', 'default.jpg')
+>>> user.posts
+[]
+
+>>> user
+User('rubutar', 'rubutar@gmail.com', 'default.jpg')
+>>> user.posts
+[]
+>>> post_1 = Post(title='Blog 1', content='First Post Content', user_id=user.id)
+>>> post_2 = Post(title='Blog 2', content='Second Post Content', user_id=user.id)
+>>> db.session.add(post_1)
+>>> db.session.add(post_2)
+>>> db.session.commit
+<bound method scoped_session.commit of <sqlalchemy.orm.scoping.scoped_session object at 0x1029f10d0>>
+>>> db.session.commit()
+
+
+INSTALL BCRYPT
+
+pip install flask-bcrypt
+>>> from flask_bcrypt import Bcrypt
+>>> bcrypt = Bcrypt()
+>>> bcrypt.generate_password_hash('testing')
+b'$2b$12$nWb9.oWB2YXaYk56BEdCt.5vbSE.JJx2EsIY8ApyVOIYG4u5.h8me'
+>>> bcrypt.generate_password_hash('testing').decode('utf-8')
+'$2b$12$Iaj.WuG5I.cEBxfCebjV3ef5oZaYwXLX4.UidubKzwT11fUvALQiq'
+>>> bcrypt.generate_password_hash('testing').decode('utf-8')
+'$2b$12$MBdmntbfRmAUj1MkfqEAo.B3nQDBljdL4bfGefw.42loJ6nltVgpy'
+>>> hashed_pw = bcrypt.generate_password_hash('testing').decode('utf-8')
+>>> hashed_pw
+'$2b$12$WM4u9ocgEPjOcyDUowlm3ukCwFEMXwT0iG6XKd8NBbA0P1OFee.Cm'
+>>> bcrypt.check_password_hash(hashed_pw)
+>>> bcrypt.check_password_hash(hashed_pw, 'password')
+False
+>>> bcrypt.check_password_hash(hashed_pw, 'testing')
+True
