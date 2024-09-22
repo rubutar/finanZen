@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <header>
+        <h1>Investment Dashboard</h1>
+        <nav>
+            <a href="#">Add Investment</a>
+            <a href="#">Total Investment: $5000</a>
+            <a href="#">Total Return: $450</a>
+            <a href="#">Percentage Return: 9%</a>
+        </nav>
+    </header>
+
+    <section class="notifications">
+        <h2>Notifications</h2>
+        <div class="alert alert-warning">
+            <strong>Warning:</strong> The stock <strong>AAPL</strong> is predicted to drop by 5% based on recent trends.
+        </div>
+        <div class="alert alert-success">
+            <strong>Good News:</strong> The stock <strong>GOOGL</strong> is expected to rise by 8% in the next quarter.
+        </div>
+        <div class="alert alert-info">
+            <strong>Info:</strong> The stock <strong>MSFT</strong> has shown stable growth over the past month.
+        </div>
+    </section>
+
+    <main>
+        <h2>Your Investments</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Quantity</th>
+                    <th>Price (USD)</th>
+                    <th>Total Price (USD)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AAPL</td>
+                    <td>10</td>
+                    <td>150</td>
+                    <td>1500</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>GOOGL</td>
+                    <td>5</td>
+                    <td>2000</td>
+                    <td>10000</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>MSFT</td>
+                    <td>8</td>
+                    <td>250</td>
+                    <td>2000</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>TSLA</td>
+                    <td>15</td>
+                    <td>700</td>
+                    <td>10500</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>AMZN</td>
+                    <td>2</td>
+                    <td>3300</td>
+                    <td>6600</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</div>
+
+{% endblock content %}

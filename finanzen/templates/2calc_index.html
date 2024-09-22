@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="container">
+    <header>
+        <h1>Investment Dashboard</h1>
+        <nav>
+            <a href="#">Add Investment</a>
+        </nav>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Quantity</th>
+                    <th>Price (USD)</th>
+                    <th>Total Price (USD)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>AAPL</td>
+                    <td>10</td>
+                    <td>150</td>
+                    <td>1500</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>GOOGL</td>
+                    <td>5</td>
+                    <td>2000</td>
+                    <td>10000</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</td>
+                </tr>
+                <tr>
+                    <td>MSFT</td>
+                    <td>8</td>
+                    <td>250</td>
+                    <td>2000</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>TSLA</td>
+                    <td>15</td>
+                    <td>700</td>
+                    <td>10500</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>AMZN</td>
+                    <td>2</td>
+                    <td>3300</td>
+                    <td>6600</td>
+                    <td>
+                        <a href="#">Update</a> | 
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <nav>
+
+        <a>Total Investment: $5000</a></br>
+        <a>Total Return: $450</a></br>
+        <a>Percentage Return: 9%</a></br>
+    </nav>
+</div>
+
+<script src="scripts.js"></script>
+
+{% endblock content %}

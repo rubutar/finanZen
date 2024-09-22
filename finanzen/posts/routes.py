@@ -7,7 +7,6 @@ from finanzen.posts.forms import PostForm
 
 posts = Blueprint('posts', __name__)
 
-
 @posts.route("/post/new", methods=['GET', 'POST'])
 @login_required
 def new_post():
@@ -19,7 +18,7 @@ def new_post():
         flash('Your post has been created!', 'success')
         return redirect(url_for('main.home'))
     return render_template('create_post.html', title='New Post', 
-                           form=form, legend='Update Post') 
+                           form=form, legend='New Post') 
 
 @posts.route("/post/<int:post_id>")
 def post(post_id):

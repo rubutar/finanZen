@@ -30,9 +30,14 @@ def create_app(config_class=Config):
     from finanzen.posts.routes import posts
     from finanzen.main.routes import main
     from finanzen.errors.handlers import errors
+    from finanzen.assets.routes import assets
     app.register_blueprint(users)
     app.register_blueprint(posts)
     app.register_blueprint(main)
     app.register_blueprint(errors)
+    app.register_blueprint(assets)
+
 
     return app
+
+

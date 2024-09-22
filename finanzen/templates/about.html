@@ -1,4 +1,77 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>About Page</h1>
+
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        background-color: #f4f7f6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .contact-section {
+        padding: 60px 0;
+        background-color: #ffffff;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        max-width: 700px;
+        margin: 40px auto;
+    }
+    .contact-section h1 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2.5rem;
+        color: #333;
+    }
+    .form-group {
+        margin-bottom: 25px;
+    }
+    .form-control {
+        border-radius: 30px;
+        padding: 20px;
+    }
+    .btn-custom {
+        background-color: #007bff;
+        color: #ffffff;
+        border-radius: 30px;
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+    .btn-custom:hover {
+        background-color: #0056b3;
+        color: #ffffff;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="contact-section">
+    <h1>Contact Me</h1>
+    <form>
+        <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+            <label for="email">Your Email</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+            <label for="message">Your Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-custom">Send Message</button>
+        </div>
+    </form>
+</div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
 {% endblock content %}

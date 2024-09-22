@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+           <legend class="border-bottom mb-4">{{ legend }}</legend>
+
+        <div class="container mt-5">
+            <h1>Add Investment</h1>
+            <form action="" method="POST">
+                <div class="form-group">
+                    <label for="ticker">Ticker</label>
+                    <input type="text" class="form-control" id="ticker" name="ticker" required autocomplete="off">
+                    <div id="ticker-list" class="list-group mt-2"></div>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Quantity</label>
+                    <select class="form-control" id="quantity" name="quantity" required>
+                        {% for i in range(1, 11) %}
+                            <option value="{{ i }}">{{ i }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Purchase Price (USD)</label>
+                    <input type="number" step="0.01" class="form-control" id="price" name="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="date_purchased">Date Purchased</label>
+                    <input type="date" class="form-control" id="date_purchased" name="date_purchased" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add Investment</button>
+            </form>
+        </div>
+        
+        <script>
+        $(document).ready(function() {
+            $('#ticker').on('input', function() {
+                let query = $(this).val();
+                if (query.length >= 2) {
+                    $.ajax({
+                        url: '{{ url_for("assets.search_ticker") }}',
+                        type: 'GET',
+                        data: { query: query },
+                        success: function(data) {
+                            $('#ticker-list').empty();
+                            $.each(data, function(index, item) {
+                                $('#ticker-list').append('<a href="#" class="list-group-item list-group-item-action ticker-item">' + item.symbol + ' - ' + item.shortName + '</a>');
+                            });
+                            $('.ticker-item').on('click', function() {
+                                $('#ticker').val($(this).text().split(' - ')[0]);
+                                $('#ticker-list').empty();
+                            });
+                        }
+                    });
+                } else {
+                    $('#ticker-list').empty();
+                }
+            });
+        });
+        </script>
+        
+
+    </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+<a href="{{ url_for('assets.new_calc') }}">ADD HERE</a>
+
+    <div class="container mt-5">
+      <h1>User Investments</h1>
+      <table class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>Ticker</th>
+                  <th>Quantity</th>
+                  <th>Purchase Price (USD)</th>
+                  <th>Total Price (USD)</th>
+                  <th>Date Purchased</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for investment in assets %}
+              <tr>
+                  <td>{{ investment.ticker }}</td>
+                  <td>{{ investment.quantity }}</td>
+                  <td>{{ investment.price }}</td>
+                  <td>{{ investment.total_price }}</td>
+                  <td>{{ investment.date_purchased }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  
+      <h3>Total Investment: ${{ total_investment }}</h3>
+      <h3>Total Return: ${{ total_return }}</h3>
+      <h3>Percentage Return: {{ percentage_return }}%</h3>
+  </div>
+{% endblock content %}
