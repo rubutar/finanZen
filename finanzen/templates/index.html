@@ -2,37 +2,45 @@
 {% block content %}
 
 <div class="container">
-  <div class="content-section">
-      <h1>RUDI JUANDI BUTARBUTAR</h1>
-      <h3>Skills:</h3>
-      <ul>
-          <li>Python Backend Developer</li>
-          <li>Golang Backend Developer</li>
-          <li>Data Analysis and Machine Learning</li>
-      </ul>
-  </div>
-</div>
 
-<div class="container my-5">
-  <h1 class="mb-4">My Portfolio</h1>
-  <ul class="list-group">
-      <li class="list-group-item list-group-item-light">
-          <a href="{{ url_for('users.login') }}" class="text-decoration-none text-dark">Backend Development : User Function with Flask</a>
-      </li>
-      <li class="list-group-item list-group-item-light">
-          <a href="{{ url_for('posts.new_post') }}" class="text-decoration-none text-dark">Backend Development : Posts Function with Flask</a>
-      </li>
-      <li class="list-group-item list-group-item-light">
-          <a href="{{ url_for('assets.calc') }}" class="text-decoration-none text-dark">Backend Development : Asset Calculation with Flask</a>
-      </li>
-      <li class="list-group-item list-group-item-light">
-          <a href="{{ url_for('users.login') }}" class="text-decoration-none text-dark">Backend Development : Economic List with Flask</a>
-      </li>
-      <li class="list-group-item list-group-item-light">
-          <a href="https://github.com/rubutar" class="text-decoration-none text-dark">Others on Github</a>
-      </li>
-  </ul>
-  <iframe src="{{ url_for('main.serve_pdf') }}" width="100%" height="600px"></iframe>
-</div>
+    <div class="container mt-5">
+        <h1>Welcome to FinanZen!</h1>
+        <p>
+            FinanZen is a platform designed to help you manage your finances with peace and clarity — a financial solution that brings Zen into your life. Whether you're tracking expenses, managing investments, or calculating currencies, FinanZen makes it easy and stress-free.
+        </p>
+        <p>You can explore the platform through the navigation bar below. From here, you'll discover features like ExpenZen for expense tracking, CalcZen for currency conversion, and a portfolio manager that helps you keep track of your assets.</p>
+
+
+        <h3>Exciting News!</h3> 
+        <p>I'm currently working on a mobile version of FinanZen for Apple devices. Soon, you'll be able to manage your finances on the go with the same Zen experience!</p>
+
+        <h1>My Other Portfolio</h1>
+        <p>
+            For more details about me and my projects, feel free to check out my portfolio.
+        </p>
+
+        <div class="container my-5">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-light">
+                    <a href="{{ url_for('users.login') }}" class="text-decoration-none text-dark">Backend Development : User Function with Flask</a>
+                </li>
+                <li class="list-group-item list-group-item-light">
+                    <a href="{{ url_for('posts.new_post') }}" class="text-decoration-none text-dark">Backend Development : Posts Function with Flask</a>
+                </li>
+                <li class="list-group-item list-group-item-light">
+                    <a href="{{ url_for('assets.calc') }}" class="text-decoration-none text-dark">Backend Development : Asset Calculation with Flask</a>
+                </li>
+                <li class="list-group-item list-group-item-light">
+                    <a href="{{ url_for('users.login') }}" class="text-decoration-none text-dark">Backend Development : Economic List with Flask</a>
+                </li>
+                <li class="list-group-item list-group-item-light">
+                    <a href="https://github.com/rubutar" class="text-decoration-none text-dark">Others on Github</a>
+                </li>
+            </ul>
+            <iframe src="{{ url_for('main.serve_pdf') }}" width="100%" height="600px"></iframe>
+          </div>
+
+    </div>
+ 
 
 {% endblock content %}
