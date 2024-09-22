@@ -80,4 +80,8 @@ def search_ticker():
 #     flash('Your post has been deleted!', 'success')
 #     return redirect(url_for('main.home'))
 
+@assets.route("/calcZen")
+@login_required
+def calcZen():
+    return render_template('calcZen.html')
 

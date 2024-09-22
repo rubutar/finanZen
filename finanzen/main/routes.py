@@ -22,3 +22,4 @@ def serve_pdf():
     # Path to the PDF file
     path_to_pdf = 'templates/Portfolio.pdf'
     return send_file(path_to_pdf)
+
